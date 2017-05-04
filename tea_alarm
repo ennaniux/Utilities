@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# DBCh.
+
+# This script is the implementation of the single
+# line instruction: sleep 1; echo -n "Time is Up"
+
+# Just put the executable file in ~/bin/
+# Run in Terminal: tea_alarm
+
+# It is set by default to 10 mins. But it can easily be modified to
+# specific by replacing minutes=10 by
+
+#read minutes
+
+minutes=10; 
+echo -n "Tea is in the heat!, I'll annoyingly remind you in $minutes mins!"
+echo -n ""
+
+sleep $(($minutes*60));
+while true; do 
+    sleep 1; echo -n "WARNING: TEA IS READY"; echo -e '\007'
+    done
