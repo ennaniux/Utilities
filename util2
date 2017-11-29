@@ -1,0 +1,18 @@
+# This in only an ilustration of how local variables work
+# under shell scripting.
+
+#!/bin/bash
+
+STR="Hello world string!"
+HELLO=Hello2
+
+function hello {
+local HELLO=World
+echo $HELLO
+}
+
+
+echo $STR
+echo $HELLO
+hello
+echo $HELLO
