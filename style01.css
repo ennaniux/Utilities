@@ -2,6 +2,7 @@
 /* DBCh CSS for blog project */
 /* color schemes: #333745; #E63462 ; #C7EFCF ; #EEF5DB ; #909396; #262626;*/
 
+/* usage: #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./style01.css"/> */
 
 body {
 	font-size: 18px;
