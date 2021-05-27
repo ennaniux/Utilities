@@ -12,7 +12,7 @@ echo $UL
 
 for id in `seq 1 $UL`; do echo "$FILE -jC -i layer$id -e layer$id.pdf"; done | inkscape --shell
 
-pdfjam layer*.pdf -o "newfile$ULlayers.pdf"
+pdfjam layer*.pdf -o "newfile.pdf"
 
-rm layer*pdf
+rm layer*.pdf
 
