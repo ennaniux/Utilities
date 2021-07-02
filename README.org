@@ -22,7 +22,7 @@ Ideal when you want to prepare multiple reports, or multiple emails.
 
 
 From our data file:
-#+begin_src bash
+#+begin_src bash :exports both
 cat template_data.csv
 #+end_src
 
