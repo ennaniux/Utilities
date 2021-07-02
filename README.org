@@ -36,7 +36,7 @@ cat template_data.csv
 
 We generate the following messages
 
-#+begin_src bash :results output
+#+begin_src bash :results output :exports both
 ./template_example.sh template_data.csv 
 #+end_src
 
