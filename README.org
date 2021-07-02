@@ -1,0 +1,109 @@
+#+title: README
+#+author: ennaniux
+
+* Utilities
+
+Some (Bash) shell code to play with.
+
+* prinkscape2pdfmultilayer.sh
+
+When using INKSCAPE as an online board one can use different layers.
+This code prints every layer of the .svg file into a page of a single pdf file.
+
+#+begin_example
+./prinkscape2pdfmultilayer.sh file.svg
+#+end_example
+
+
+* template_example.sh
+
+This is a template of a template. It reads information from a csv file and prints a report containing information of each row.
+Ideal when you want to prepare multiple reports, or multiple emails.
+
+
+From our data file:
+#+begin_src bash
+cat template_data.csv
+#+end_src
+
+#+RESULTS:
+| name | surname | email                 |
+| John | Air     | john1@email.com       |
+| John | Blair   | johnBlair@email.com   |
+| Juan | Aire    | juanitoaire@email.com |
+| Pepe | Pecas   | pepec@email.com       |
+
+
+We generate the following messages
+
+#+begin_src bash :results output
+./template_example.sh template_data.csv 
+#+end_src
+
+#+RESULTS:
+#+begin_example
+2
+
+This is Just an Example
+
+Dear John Air
+
+This is a test for a report that will be sent to your email:
+john1@email.com
+
+I can also send you the following function output:
+"Hello test"
+
+Best wishes,
+the sender.
+
+
+3
+
+This is Just an Example
+
+Dear John Blair
+
+This is a test for a report that will be sent to your email:
+johnBlair@email.com
+
+I can also send you the following function output:
+"Hello test"
+
+Best wishes,
+the sender.
+
+
+4
+
+This is Just an Example
+
+Dear Juan Aire
+
+This is a test for a report that will be sent to your email:
+juanitoaire@email.com
+
+I can also send you the following function output:
+"Hello test"
+
+Best wishes,
+the sender.
+
+
+5
+
+This is Just an Example
+
+Dear Pepe Pecas
+
+This is a test for a report that will be sent to your email:
+pepec@email.com
+
+I can also send you the following function output:
+"Hello test"
+
+Best wishes,
+the sender.
+
+
+#+end_example
