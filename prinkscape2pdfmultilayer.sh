@@ -12,7 +12,7 @@ echo $UL
 
 for id in $UL; do echo "$FILE -jC -i $id -e $id.pdf"; done | inkscape --shell
 
-pdfjam layer*.pdf -o "$FILE_pout.pdf"
+pdfjam layer*.pdf -o "${FILE:0: -3}_pout.pdf"
 
 rm layer*.pdf
 
