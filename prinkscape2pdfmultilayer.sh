@@ -10,7 +10,7 @@ UL=$(inkscape --query-all $FILE | grep layer | awk -F"," '{print $1}')
 
 echo $UL
 
-for id in $UL; do echo "$FILE -jC -i $id -e $id.pdf"; done | inkscape --shell
+for id in $UL; do inkscape $FILE -jC -i $id -o $id.pdf ; done
 
 pdfjam layer*.pdf -o "${FILE:0: -3}_pout.pdf"
 

@@ -13,7 +13,7 @@
 
 #read minutes
 
-minutes=10; 
+minutes=$1; 
 echo -n "Tea is in the heat!, I'll annoyingly remind you in $minutes mins!"
 echo -n ""
 
