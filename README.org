@@ -108,7 +108,7 @@ the sender.
 
 #+end_example
 
-* Styles CSS
+* CSS styles for org-notes into html
 
 These are styles I mainly use to export my org-notes to html 
 
@@ -118,7 +118,7 @@ Usage 1: Link to the css file by adding in the org-file header the following
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="/path_to/Utilities/style04.css"/> 
 #+end_example
 
-Usage 2: Run the following code block (at the begining of the org file). This will create a drawer called =:results:= with the css code inside. Then, export to html as usual, and the style will be embedded in the html file.
+Usage 2: Run the following code block (at the beginning of the org file). This will create a drawer called =:results:= with the css code inside. Then, export to html as usual, and the style will be embedded in the html file.
 
 #+begin_example
 #+begin_src bash :var file="/path_to/Utilities/style04.css" :results output drawer :exports results
