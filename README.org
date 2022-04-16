@@ -114,9 +114,9 @@ These are styles I mainly use to export my org-notes to html
 
 Usage 1: Link to the css file by adding in the org-file header the following
 
-#+begin_quote
+#+begin_verse
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="/path_to/Utilities/style04.css"/> 
-#+end_quote
+#+end_verse
 
 Usage 2: Run the following code block (at the begining of the org file). This will create a drawer called =:results:= with the css code inside. Then, export to html as usual, and the style will be embedded in the html file.
 
