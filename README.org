@@ -120,8 +120,8 @@ Usage 1: Link to the css file by adding in the org-file header the following
 
 Usage 2: Run the following code block (at the begining of the org file). This will create a drawer called =:results:= with the css code inside. Then, export to html as usual, and the style will be embedded in the html file.
 
-#+begin_quote
+#+begin_example
 #+begin_src bash :var file="/path_to/Utilities/style04.css" :results output drawer :exports results
 echo "<style>" "$(cat $file)" "</style>" | awk ' {print $0="#+HTML_HEAD:"$0}'
 #+end_src
-#+end_quote
+#+end_example
