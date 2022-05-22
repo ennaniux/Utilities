@@ -3,7 +3,7 @@
 /* color schemes: #333745; #E63462 ; #C7EFCF ; #EEF5DB ; #909396; #262626;*/
 /* Modified version with responsive TOC
 
-/* usage: #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./style01.css"/> */
+/* usage: #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./style04.css"/> */
 
 body {
 	font-size: 18px;
@@ -216,8 +216,8 @@ p {
 
   .cor  {
     	color:  #404040;
-    border: 1px solid blue;
-    box-shadow: 3px 3px 3px blue;
+    border: 1px solid grey;
+    box-shadow: 3px 3px 3px grey;
     padding: 8pt;
     overflow: auto;
     margin: 1.2em;
