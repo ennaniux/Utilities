@@ -125,3 +125,19 @@ Usage 2: Run the following code block (at the beginning of the org file). This w
 echo "<style>" "$(cat $file)" "</style>" | awk ' {print $0="#+HTML_HEAD:"$0}'
 #+end_src
 #+end_example
+
+* Some AWK tricks
+
+One of the useful features of AWK is without a doubt associative arrays.
+
+The AWK's analogue to R's table
+#+begin_example
+awk -F"," 'NR>1{a[$1]++} END { for (i in a) print i, a[i]}' 
+#+end_example
+
+The AWK's analogue to R's tapply
+#+begin_example
+awk -F"," 'NR>1{a[$1]+=$2} END { for (i in a) print i, a[i]}' 
+#+end_example
+
+
