@@ -141,3 +141,16 @@ awk -F"," 'NR>1{a[$1]+=$2} END { for (i in a) print i, a[i]}'
 #+end_example
 
 
+* Dealing with different encodings in Linux
+
+To check what is the encodign of a file:
+
+#+begin_example
+file -i foo
+#+end_example
+
+To change from iso-8859-1 to UTF-8
+
+#+begin_example
+iconv -f iso-8859-1 -t UTF-8//TRANSLIT foofile -o outfile
+#+end_example
