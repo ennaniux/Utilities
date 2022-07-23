@@ -141,9 +141,9 @@ awk -F"," 'NR>1{a[$1]+=$2} END { for (i in a) print i, a[i]}'
 #+end_example
 
 
-* Dealing with different encodings in Linux
+* Dealing with different encoding in Linux
 
-To check what is the encodign of a file:
+To check what is the encoding of a file:
 
 #+begin_example
 file -i foo
@@ -153,4 +153,13 @@ To change from iso-8859-1 to UTF-8
 
 #+begin_example
 iconv -f iso-8859-1 -t UTF-8//TRANSLIT foofile -o outfile
+#+end_example
+
+* Bash code to export from an org-file to html
+
+When generating reports, we would like to do it via emacs org-mode. 
+In this case, in the bash file we can add the following:
+
+#+begin_example
+emacs --batch --eval "(require 'org)" foofile.org --funcall org-html-export-to-html
 #+end_example
