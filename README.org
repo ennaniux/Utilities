@@ -155,10 +155,10 @@ To change from iso-8859-1 to UTF-8
 iconv -f iso-8859-1 -t UTF-8//TRANSLIT foofile -o outfile
 #+end_example
 
-* Bash code to export from an org-file to html
+* Bash code to export to html an org-file
 
-When generating reports, we would like to do it via emacs org-mode. 
-In this case, in the bash file we can add the following:
+When generating reports, we would like to do it via emacs org-mode. It can export to html, latex, pdf, odt and others.
+In the bash file redirect =echo $REPORT > file foofile.org= and then we can add the following line:
 
 #+begin_example
 emacs --batch --eval "(require 'org)" foofile.org --funcall org-html-export-to-html
