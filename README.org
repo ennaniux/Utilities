@@ -146,7 +146,7 @@ Check the code for an implementation of a Simple Linear Regression in AWK.
 
 + tletl_SLR.sh
 
-On the file =FILE.csv= contains a data frame with headers, and we want to perform 
+The file =FILE.csv= contains a data frame with headers in the first row, and we want to perform 
 a linear regression with the independent variable =X= in the second column =$2=,
 and the dependent variable =Y= in the =$8= column. Then we do
 
