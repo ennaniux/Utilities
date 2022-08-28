@@ -131,14 +131,30 @@ echo "<style>" "$(cat $file)" "</style>" | awk ' {print $0="#+HTML_HEAD:"$0}'
 One of the useful features of AWK is without a doubt associative arrays.
 
 The AWK's analogue to R's table
-#+begin_example
+#+begin_example sh 
 awk -F"," 'NR>1{a[$1]++} END { for (i in a) print i, a[i]}' 
 #+end_example
 
 The AWK's analogue to R's tapply
-#+begin_example
+#+begin_example sh
 awk -F"," 'NR>1{a[$1]+=$2} END { for (i in a) print i, a[i]}' 
 #+end_example
+
+** Simple Linear Regression with AWK
+
+Check the code for an implementation of a Simple Linear Regression in AWK.
+
++ tletl_SLR.sh
+
+On the file =FILE.csv= contains a data frame with headers, and we want to perform 
+a linear regression with the independent variable =X= in the second column =$2=,
+and the dependent variable =Y= in the =$8= column. Then we do
+
+#+begin_example sh
+awk 'BEGIN{FS=OFS=","}{print $2, $8}' FILE.csv | tletl_SLR.sh 
+Slope: 17500 Intercept: -219688.935 r-square: 0.02917 Adj-r-square: 0.02747
+#+end_example
+
 
 
 * Dealing with different encoding in Linux

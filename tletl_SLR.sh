@@ -17,7 +17,7 @@ END{
     intercept = (Sy - slope * Sx)/NN;
     printf("Slope: ");
     printf("%5.3f ", slope);
-    printf("Intercep: ");
+    printf("Intercept: ");
     printf("%5.3f ", intercept);
 
     rnum=0;
