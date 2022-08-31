@@ -140,6 +140,20 @@ The AWK's analogue to R's tapply
 awk -F"," 'NR>1{a[$1]+=$2} END { for (i in a) print i, a[i]}' 
 #+end_example
 
+Select a column by name. Suppose that one of the col names in a csv file is
+="VAR"= (with the quotation marks) Then to have a simple frequency table we write
+
+#+begin_example
+awk -F"," 'NR==1 {
+    for (i=1; i<=NF; i++) {
+        f[$i] = i
+    }
+print $f["\"VAR\""], "Count"
+}
+NR>1{ a[$(f["\"VAR\""])]++ } END{ for (i in a) print i, a[i]}' $FILE
+#+end_example
+
+
 ** Simple Linear Regression with AWK
 
 Check the code for an implementation of a Simple Linear Regression in AWK.
