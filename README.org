@@ -229,12 +229,12 @@ Gives the following output
 
 ~$ ./a -+uno -dos -tres~
 
-#+begin_export ascii
+#+begin_example ascii
 No. of arguments: 4
 ---------------------- 
 Input		|Description  			 |	2nd letter
 ./a		|Name of the program  		 |		/
 -+uno		|The 1st char of the 1st argument|		-
 -dos		|The 2nd char of the 2nd argument|		d
-#+end_export
+#+end_example
 
