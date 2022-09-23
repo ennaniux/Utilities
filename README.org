@@ -193,3 +193,48 @@ In the bash file redirect =echo $REPORT > file foofile.org= and then we can add 
 #+begin_example
 emacs --batch --eval "(require 'org)" foofile.org --funcall org-html-export-to-html
 #+end_example
+
+* Some C code
+
+** Understanding ~argv~ and ~argc~.
+
+The following C code
+
+#+begin_example C
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]){
+
+  if (argc < 3) {
+            printf("ERROR: You need at least two arguments.\n");
+            return -1;
+    }
+
+  printf("No. of arguments: %d\n", argc);
+  printf("---------------------- \n");
+
+  printf("Input\t\t|Description  \t\t\t |\t2nd letter\n");
+  printf("%s\t\t|Name of the program  \t\t |\t\t%c\n", *argv, *(*argv)+1);
+  printf("%s\t\t|The 1st char of the 1st argument|\t\t%c\n", *(argv+1),*(*(argv+1)+0) );
+  printf("%s\t\t|The 2nd char of the 2nd argument|\t\t%c\n", *(argv+2), *(*(argv+2)+1) );
+
+  return 0;
+}
+
+#+end_example
+
+Gives the following output
+
+~$ ./a -+uno -dos -tres~
+
+#+begin_export ascii
+No. of arguments: 4
+---------------------- 
+Input		|Description  			 |	2nd letter
+./a		|Name of the program  		 |		/
+-+uno		|The 1st char of the 1st argument|		-
+-dos		|The 2nd char of the 2nd argument|		d
+#+end_export
+
