@@ -194,6 +194,30 @@ In the bash file redirect =echo $REPORT > file foofile.org= and then we can add 
 emacs --batch --eval "(require 'org)" foofile.org --funcall org-html-export-to-html
 #+end_example
 
+* Export Bash variables to Rscript
+
+Here there is an example of yet another way to use variables from a shell/bash script into
+an expression in ~Rscript~. The shell script is named ~foo.sh~ and the first argument in the 
+terminal is a csv file. 
+
+Usage: ~$foo.sh file.csv~
+
+foo.sh content:
+#+begin_example bash
+#!/bin/bash
+
+FILE=$1
+
+export FILE
+
+Rscript -e '
+VAR <- Sys.getenv("FILE")
+print(VAR)
+datasource  <- read.csv(VAR,sep=",")
+head(datasource)
+
+#+end_example
+
 * Some C code
 
 ** Understanding ~argv~ and ~argc~.
