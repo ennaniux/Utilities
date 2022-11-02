@@ -13,8 +13,6 @@ This code prints every layer of the .svg file into a page of a single pdf file.
 #+begin_example
 ./prinkscape2pdfmultilayer.sh file.svg
 #+end_example
-
-
 * template_example.sh
 
 This is a template of a template. It reads information from a csv file and prints a report containing information of each row.
@@ -153,7 +151,6 @@ print $f["\"VAR\""], "Count"
 NR>1{ a[$(f["\"VAR\""])]++ } END{ for (i in a) print i, a[i]}' $FILE
 #+end_example
 
-
 ** Simple Linear Regression with AWK
 
 Check the code for an implementation of a Simple Linear Regression in AWK.
@@ -169,7 +166,31 @@ awk 'BEGIN{FS=OFS=","}{print $2, $8}' FILE.csv | tletl_SLR.sh
 Slope: 17500 Intercept: -219688.935 r-square: 0.02917 Adj-r-square: 0.02747
 #+end_example
 
+* Some R tricks
 
+** Cycling a vector
+
+#+begin_src R  :exports both :results outputs
+shift <- function(x, lag) {
+    n <- length(x)
+    if(lag %% n ==0){
+        new <- x
+    }
+    else{
+        
+        new <- c(x[-c(1:(lag%%n))],x[1:(lag%%n)])
+    }
+    
+    return(new)
+}
+
+# Example
+x <- 1:10
+shift(x,4)
+#+end_src
+
+#+RESULTS:
+| 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 |
 
 * Dealing with different encoding in Linux
 
