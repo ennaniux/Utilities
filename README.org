@@ -286,12 +286,13 @@ Input		|Description  			 |	2nd letter
 
 ** Using Makefile with math.h
 
-In linux (debian) when trying to compile a ~main.c~ file the sequence
+In linux (debian) when trying to compile a file ~main.c~ that includes the ~math.h~ library,
+the usual compiling sequence using gcc looks like
 #+begin_example bash
 gcc main.c -o main
 #+end_example
 
-will prompt some error like ~undefined reference to `sqrt'~.
+will prompt some error like ~undefined reference to sqrt~.
 
 To make it work one should add the flag ~-lm~ after the .c file:
 #+begin_example bash
