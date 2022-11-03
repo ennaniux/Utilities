@@ -283,3 +283,45 @@ Input		|Description  			 |	2nd letter
 -dos		|The 2nd char of the 2nd argument|		d
 #+end_example
 
+
+** Using Makefile with math.h
+
+In linux (debian) when trying to compile a ~main.c~ file the sequence
+#+begin_example bash
+gcc main.c -o main
+#+end_example
+
+will prompt some error like ~undefined reference to `sqrt'~.
+
+To make it work one should add the flag ~-lm~ after the .c file:
+#+begin_example bash
+gcc main.c -o main -lm
+#+end_example
+
+According to the autotools manuals:
+#+begin_example
+So if your program is using math functions and including math.h, then
+you need to explicitly link the math library by passing the ‘-lm’
+flag. The reason for this particular separation is that mathematicians
+are very picky about the way their math is being computed and they may
+want to use their own implementation of the math functions instead of
+the standard implementation. If the math functions were lumped into
+libc.a it wouldn't be possible to do that.
+#+end_example
+
+How to include this in the makefile? The solution is in the make manual:
+
+#+begin_example
++ LDLIBS ::   Library flags or names given to compilers when they are
+  supposed to invoke the linker, ‘ld’. LOADLIBES is a deprecated (but
+  still supported) alternative to LDLIBS. Non-library linker flags,
+  such as -L, should go in the LDFLAGS variable.
+#+end_example
+
+My minimal makefile now looks like:
+
+#+begin_example
+CC=gcc
+CFLAGS= -Wall -pedantic -g3 
+LDLIBS=-lm
+#+end_example
