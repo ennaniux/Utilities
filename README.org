@@ -326,3 +326,52 @@ CC=gcc
 CFLAGS= -Wall -pedantic -g3 
 LDLIBS=-lm
 #+end_example
+
+** Reading CSV and sum of one field (column)
+
+The following C program opens a csv file with no headers,
+it converts the first field (first column) into a long integer (number) and adds them all.
+
+#+begin_example C
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(){
+
+  FILE *fp = fopen("foo.csv", "r");
+
+  char buffer[1024];
+  char *endptr;
+
+  int col;
+
+  long sum;
+  sum = 0;
+
+  if(!fp){
+    printf("Can't open the file!\n");
+  } else{
+
+    while(fgets(buffer,1024,fp)){
+      col= 0;
+      char *value = strtok(buffer, ",");
+
+      while(value){
+	if(col==0){
+	  sum = sum + strtol(value, &endptr, 10);
+	  col++;
+	  value = strtok(NULL, ",");
+	} else {
+	  value = strtok(NULL, ",");
+	}
+      }
+    }
+  }
+
+  fclose(fp);
+  printf("Sum of the first column: %ld\n", sum);
+  return 0;
+}
+#+end_example
+
