@@ -375,3 +375,22 @@ int main(){
 }
 #+end_example
 
+* Office systematisation
+
+The following are some tricks to automate some office tasks:
+
+** Run a bash script if a local file is modified
+#+begin_example shell
+#!/bin/bash
+LTIME=$(stat -c %y /path/to/file.txt)
+while true
+do
+  ATIME=$(stat -c %y /path/to/fie.txt)
+  if [[ "$ATIME" != "$LTIME" ]]; then
+        echo "RUN COMMNAD"
+        ./your_script.sh
+        LTIME=$ATIME
+  fi
+  sleep 2
+done
+#+end_example
