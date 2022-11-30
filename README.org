@@ -124,6 +124,88 @@ echo "<style>" "$(cat $file)" "</style>" | awk ' {print $0="#+HTML_HEAD:"$0}'
 #+end_src
 #+end_example
 
+** Pretty org notes
+
+At the top of my org I have something like
+
+#+begin_example
+#+title: Here the title of the notes
+#+author: Here your name
+#+HTML_HEAD: <style>
+#+HTML_HEAD:  :root {
+#+HTML_HEAD:  --col0: #954535;		/*Body color (font)*/
+#+HTML_HEAD:  --col1: #8d99ae;		/* Section header bg*/
+#+HTML_HEAD:  --col2: #edf2f4;		/*body bg*/
+#+HTML_HEAD:  --col3: #ef233c;		/*Active top bar*/
+#+HTML_HEAD:  --col4: #d90429;		/*Home botton bg*/
+#+HTML_HEAD:  --col5: #173f5f; 		/*H2 header*/
+#+HTML_HEAD:
+#+HTML_HEAD:}
+#+HTML_HEAD:
+#+HTML_HEAD:  body { background: var(--col2); max-width: 768px; margin: 20px auto; color: var(--col0) }
+#+HTML_HEAD: .thm {background-color: #BFF2FF; padding: 10px 20px 10px 20px; }
+#+HTML_HEAD: .thm:before {content: "Theorem: "; font-weight: bold}
+#+HTML_HEAD: .mydef {background-color: #BFF2FF; padding: 10px 20px 10px 20px; }
+#+HTML_HEAD: .mydef:before {content: "Definition: "; font-weight: bold}
+#+HTML_HEAD: .prop {background-color: #D8D8D8; padding: 10px 20px 10px 20px; }
+#+HTML_HEAD: .prop:before {content: "Proposition: "; font-weight: bold}
+#+HTML_HEAD: .xmpl {background-color: #DBEDDC; padding: 10px 20px 10px 20px; }
+#+HTML_HEAD: .xmpl:before {content: "Example: "; font-weight: bold}
+#+HTML_HEAD: </style>
+
+#+HTML_HEAD: <style>  th {background-color: #f55fc3;} tr:nth-child(odd) {background-color: #e2e2e2;}  table tr:hover {background-color: #d0c6e5;} </style>
+#+end_example
+
+Notice that ~:root~ is just an example of how to define colours as variables to be used later as shown in body.
+
+In order to insert a definition I just write this in my org file.
+
+#+begin_mydef
+Here some important concept that will be used
+#+end_mydef
+
+
+Note that the org table exports nicely:
+
+
+| Col1 | Col2 | Col3 |
+|------+------+------|
+| val  | val  | val  |
+| val  | val  | val  |
+| val  | val  | val  |
+| val  | val  | val  |
+| val  | val  | val  |
+| val  | val  | val  |
+
+
+If you want this to be exported as a latex/PDF document, then add in your ~init.el~ file the following:
+
+#+begin_example
+(with-eval-after-load 'ox-latex
+(add-to-list 'org-latex-classes
+'("mylatexclass"
+"\\documentclass{amsart}
+\\usepackage{enumerate}
+\\usepackage{amsthm,amscd,amssymb,verbatim,epsf,amsmath,amsfonts,mathrsfs,graphicx}
+\\usepackage[linktocpage,colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
+\\usepackage{lineno}
+
+\\newtheorem{thm}{Theorem}[section]
+\\newtheorem{lem}{Lemma}
+\\newtheorem{prop}{Proposition}
+\\newtheorem{prob}{Problem}
+\\newtheorem{cor}{Corollary}
+\\newtheorem{mydef}{Definition}
+\\newtheorem{conj}{Conjecture}
+\\newtheorem{xmpl}{Example}" )))
+#+end_example
+
+and then just add the following in the preamble of the org file.
+
+#+begin_example
+#+LATEX_CLASS: mylatexclass
+#+end_example
+
 * Some AWK tricks
 
 One of the useful features of AWK is without a doubt associative arrays.
