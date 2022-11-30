@@ -159,10 +159,11 @@ At the top of my org I have something like
 Notice that ~:root~ is just an example of how to define colours as variables to be used later as shown in body.
 
 In order to insert a definition I just write this in my org file.
-
+#+begin_example
 #+begin_mydef
 Here some important concept that will be used
 #+end_mydef
+#+end_example
 
 
 Note that the org table exports nicely:
