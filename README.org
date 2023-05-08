@@ -124,6 +124,23 @@ echo "<style>" "$(cat $file)" "</style>" | awk ' {print $0="#+HTML_HEAD:"$0}'
 #+end_src
 #+end_example
 
+** Quick notes
+
+#+begin_example
+#+title: Here the title of the notes
+#+author: Here your name
+#+HTML_HEAD: <style>  body { background: ; max-width: 768px; margin: 20px auto; color: } </style>
+#+HTML_HEAD: <style> .thm {background-color: #BFF2FF; padding: 10px 20px 10px 20px; }</style>
+#+HTML_HEAD: <style> .thm:before {content: "Theorem: "; font-weight: bold}</style>
+#+HTML_HEAD: <style> .mydef {background-color: #BFF2FF; padding: 10px 20px 10px 20px; }</style>
+#+HTML_HEAD: <style> .mydef:before {content: "Definition: "; font-weight: bold}</style>
+#+HTML_HEAD: <style> .prop {background-color: #D8D8D8; padding: 10px 20px 10px 20px; }</style>
+#+HTML_HEAD: <style> .prop:before {content: "Proposition: "; font-weight: bold}</style>
+#+HTML_HEAD: <style> .xmpl {background-color: #DBEDDC; padding: 10px 20px 10px 20px; }</style>
+#+HTML_HEAD: <style> .xmpl:before {content: "Example: "; font-weight: bold}</style>
+#+end_example
+
+
 ** Pretty org notes
 
 At the top of my org I have something like
