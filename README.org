@@ -524,3 +524,22 @@ The options can be modified accordingly.
 | -dPDFSETTINGS=/printer  | Output is of a printer type quality (300 dpi)                                   |
 | -dPDFSETTINGS=/default  | Selects the output which is useful for multiple purposes. Can cause large PDFS. |
 
+* GPG protecting files
+
+Creates an encrypted file with a password
+#+begin_example shell
+gpg -c -o output_file.gpg file 
+#+end_example
+
+Creates a decrypted file from a password
+#+begin_example shell
+gpg -d output_file.gpg > file.txt
+gpg -d output_file.gpg > file.tar.gz
+#+end_example
+
+A useful command to test gpg
+#+begin_example shell
+gpg-connect-agent reloadagent /bye
+#+end_example
+otherwise it won't ask you for the password for the first 2 hours I think.
+[[https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html#Invoking-GPG_002dAGENT][More infor here]]
