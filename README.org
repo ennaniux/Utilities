@@ -499,6 +499,65 @@ int main(){
 }
 #+end_example
 
+Here we have an improved version. The program admits as arguments the csv file and the 
+number of column. Then the program reads a csv file and sum the values of the specified column (skipping the first row).
+
+#+begin_example C
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_SIZE 1024
+
+  int main( int argc,  char *argv[]){
+
+  FILE *fp = fopen(argv[1], "r");
+  int CC = strtol(argv[2],NULL,10) -1;
+  char buffer[MAX_SIZE];
+  
+  if(!fp){
+    printf("Error: file not found\n");
+    return -1;
+  }else{
+    printf("file:name:%s\n", argv[1]);
+
+    int col=0; // coilumn counter
+    int row=0; // row counter
+    float sum =0;
+
+    while(fgets(buffer, MAX_SIZE, fp)){
+
+	char *value = strtok(buffer,",\n");
+	col=0;
+	while(value){
+	  if(col==CC){
+	    if(row==0){
+	    printf("%d:Name:%s\n", row,value);
+	    value = strtok(NULL,",\n");
+	    col++;}else{
+	      printf("%d:value:%s\n", row,value);
+	      sum = sum + strtof(value, NULL);
+	      value = strtok(NULL,",\n");
+	    col++;
+	    }
+	    row++;
+	  }else{
+	    value = strtok(NULL,",\n");
+	    col++;
+	  }
+	}
+    }
+    printf("0:sum: :%6.2f\n", sum);
+     
+  }
+
+  fclose(fp);
+    printf("File was closed\n");
+  return 0;
+  
+}
+#+end_example
+
 * Office systematisation
 
 The following are some tricks to automate some office tasks:
