@@ -224,6 +224,14 @@ and then just add the following in the preamble of the org file.
 #+LATEX_CLASS: mylatexclass
 #+end_example
 
+A lazy version is just to add
+#+begin_example
+#+title: THE_TITLE
+#+author: YOUR_NAME @ UNIVERSITY
+#+HTML_HEAD: <style>body {  max-width: 768px; margin: 20px auto; color:#003049 ;} </style>
+#+options: toc:nil
+
+
 ** org notes / booklet / slide 
 This is a minimalistic set up that produces nice html notes.
 #+begin_example
@@ -234,6 +242,21 @@ This is a minimalistic set up that produces nice html notes.
 #+HTML_HEAD: <style> pre.src { overflow: auto; background: #edede9 }</style>
 #+HTML_HEAD: <style> .mmbox {background-color: #BFF2FF; padding: 10px 20px 10px 20px; }</style>
 #+HTML_HEAD: <style>code {background-color: #fff;}</style>
+#+end_example
+
+** org notes / Beamer / slide 
+This is a minimalistic set up that produces nice beamer slides.
+#+begin_example
+#+author: YOUR_NAME
+#+title: THE_TITLE
+#+startup: beamer
+#+options: H:1 toc:nil
+#+latex_class: beamer
+#+latex_class_options: [bigger]
+#+columns: %45ITEM %10BEAMER_env(Env) %10BEAMER_act(Act) %4BEAMER_col(Col) %8BEAMER_opt(Opt)
+#+beamer_theme: Madrid
+#+beamer_header: \usecolortheme{default}
+#+beamer_header: \institute[PUT \& ENS]{\includegraphics[width=4cm]{./LOGO.pdf} \\  University}
 #+end_example
 
 * Some AWK tricks
