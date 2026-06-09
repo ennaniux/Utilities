@@ -230,6 +230,7 @@ A lazy version is just to add
 #+author: YOUR_NAME @ UNIVERSITY
 #+HTML_HEAD: <style>body {  max-width: 768px; margin: 20px auto; color:#003049 ;} </style>
 #+options: toc:nil
+#+end_example
 
 
 ** org notes / booklet / slide 
